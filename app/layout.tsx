@@ -6,7 +6,10 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 
 const patrickHand = Patrick_Hand({ subsets: ["latin"], weight: ["400"] });
-const notoSansJP = Noto_Sans_JP({ weight: ["400"] });
+const notoSansJP = Noto_Sans_JP({
+  subsets: ["latin"],
+  weight: ["400"],
+});
 
 export const metadata: Metadata = {
   title: "My Portfolio",
