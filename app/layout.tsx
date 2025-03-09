@@ -12,8 +12,27 @@ const notoSansJP = Noto_Sans_JP({
 });
 
 export const metadata: Metadata = {
-  title: "My Portfolio",
-  description: "Is Life Art?",
+  title: "Az's Portfolio",
+  description:
+    "Azのポートフォリオサイト。Next.jsで作成し、vercelにデプロイしています。",
+  openGraph: {
+    title: "Az's Portfolio",
+    description:
+      "I thought what I'd do was, I'd pretend I was one of those deaf-mutes or should I ?",
+    url: "https://next-portfolio-lime-eight.vercel.app",
+    siteName: "Az's Portfolio",
+    images: ["/ogp.jpg"],
+    locale: "ja_JP",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Az's Portfolio",
+    description:
+      "I thought what I'd do was, I'd pretend I was one of those deaf-mutes or should I ?",
+    images: ["/opg.jpg"],
+    creator: "@fox_inthehell",
+  },
 };
 
 export default async function RootLayout({
