@@ -36,12 +36,14 @@ export async function sendGmail(formData: FormData) {
   };
 
   const toUserMailData = {
-    from: `"お問い合わせ受付"<${process.env.GMAILUSER}>`,
+    from: `"azのポートフォリオ"<${process.env.GMAILUSER}>`,
     to: email,
     subject: "お問い合わせ受け付けました。",
     text: `${message} Send from ${email}`,
     html: `
-    <p>${name}様お問い合わせ頂き、有難う御座います。確認次第、折り返しご連絡致します。</p>
+    <p>${name}様azのポートフォリオをご覧頂き、有難う御座います。<br/>
+    内容確認次第、折り返しご連絡致します。</p>
+    <p>返信完了までしばらくお待ちください。</p>
     <p>以下の内容で受け付け致しました。</p>
     <p>-------------------------------------------</p>
     <p>【お名前】</p>
