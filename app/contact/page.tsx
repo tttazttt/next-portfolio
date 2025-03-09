@@ -3,19 +3,41 @@
 import { sendGmail } from "@/actions/contact";
 import { SendButton } from "@/components/elements/SendButton";
 import Spinner from "@/components/elements/Spinner";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 const ContactPage = () => {
-  const [status, setStatus] = useState<string | null>(null);
+  const [statusMessage, setStatusMessage] = useState<string | null>(null);
   const [statusBoolean, setStatusBoolean] = useState(false);
   const [isSending, setIsSending] = useState(false);
+  const { status } = useSession();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (status === "unauthenticated") {
+      router.push("/signin");
+    }
+  }, [status, router]);
+
+  if (status === "loading") {
+    return (
+      <div className="w-full h-screen grid place-items-center">
+        <Spinner />
+      </div>
+    );
+  }
+
+  if (status === "unauthenticated") {
+    return null;
+  }
 
   async function handleSubmit(formData: FormData) {
     setIsSending(true);
 
     const res = await sendGmail(formData);
-    setStatus(res.message);
+    setStatusMessage(res.message);
     setStatusBoolean(res.success);
 
     setIsSending(false);
@@ -39,13 +61,13 @@ const ContactPage = () => {
               Contact
             </h2>
 
-            {status && (
+            {statusMessage && (
               <p
                 className={`text-lg font-bold ${
                   statusBoolean ? "text-[#8dcb8d]" : "text-[#fd7070]"
                 } text-center`}
               >
-                {status}
+                {statusMessage}
               </p>
             )}
 

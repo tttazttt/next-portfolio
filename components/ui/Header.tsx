@@ -39,11 +39,12 @@ const Header = () => {
       transition={{ delay: 0.3, duration: 1 }}
       className="w-full h-20 fixed z-100 flex justify-between items-center"
     >
-      <ul className="flex gap-10 h-16 items-center text-lg pl-10 font-bold text-white">
+      <ul className="flex space-between flex-wrap gap-x-8 h-16 items-center text-md sm:text-xl sm:gap-x-12 pl-10 font-bold text-white flex-7">
         <LiStyle href="/" section="Home" />
         <LiStyle href="/about" section="About" />
         <LiStyle href="/works" section="Works" />
         <LiStyle href="/contact" section="Contact" />
+        <LiStyle href="/favorite" section="Favorite" />
       </ul>
       {session && (
         <div className="relative">

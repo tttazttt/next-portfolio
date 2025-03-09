@@ -14,6 +14,11 @@ const NextList = () => {
         fileName="xlike.png"
         title="マルチユーザーメモアプリ"
       />
+      <WorkCell
+        link="https://next-portfolio-lime-eight.vercel.app/signin"
+        fileName="next-portfolio.png"
+        title="モネのポートフォリオ？"
+      />
     </div>
   );
 };

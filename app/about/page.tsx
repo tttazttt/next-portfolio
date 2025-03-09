@@ -2,10 +2,34 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion";
+import { useSession } from "next-auth/react";
+import Spinner from "@/components/elements/Spinner";
+import { useRouter } from "next/navigation";
 
 const AboutPage = () => {
+  const { status } = useSession();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (status === "unauthenticated") {
+      router.push("/signin");
+    }
+  }, [status, router]);
+
+  if (status === "loading") {
+    return (
+      <div className="w-full h-screen grid place-items-center">
+        <Spinner />
+      </div>
+    );
+  }
+
+  if (status === "unauthenticated") {
+    return null;
+  }
+
   return (
     <div className="min-w-full min-h-screen bg-[#3a373c] grid place-items-center relative overflow-hidden">
       <motion.div
