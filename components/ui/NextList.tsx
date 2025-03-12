@@ -15,9 +15,9 @@ const NextList = () => {
         title="マルチユーザーメモアプリ"
       />
       <WorkCell
-        link="https://next-portfolio-lime-eight.vercel.app/signin"
-        fileName="next-portfolio.png"
-        title="モネのポートフォリオ？"
+        link="https://realtime-chat-xi-eosin.vercel.app/"
+        fileName="realtime-chat.png"
+        title="○INE with socket.io"
       />
     </div>
   );
