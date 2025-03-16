@@ -19,6 +19,11 @@ const NextList = () => {
         fileName="realtime-chat.png"
         title="○INE with socket.io"
       />
+      <WorkCell
+        link="https://whiteboard-ten-phi.vercel.app/"
+        fileName="whiteboard.png"
+        title="リアルタイムホワイトボードアプリ"
+      />
     </div>
   );
 };
